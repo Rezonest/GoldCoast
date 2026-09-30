@@ -1,16 +1,52 @@
-# React + Vite
+# Gold Coast Engineering & Projects Ltd.
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Company website for Gold Coast Engineering & Projects Ltd., serving industrial and infrastructure projects in Ghana and the wider West African region. Built with React and Vite.
 
-Currently, two official plugins are available:
+## Requirements
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Node.js 20.19+ or 22.12+
+- npm
 
-## React Compiler
+## Run locally
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Install the locked dependencies and start the Vite development server:
 
-## Expanding the Oxlint configuration
+```powershell
+npm.cmd ci
+npm.cmd run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Open the local URL printed by Vite, usually `http://localhost:5173/`.
+
+In PowerShell environments where script execution blocks `npm.ps1`, use `npm.cmd` as shown above. In other terminals, `npm` works as usual.
+
+## Available commands
+
+```powershell
+npm.cmd run dev      # Start the development server
+npm.cmd run build    # Create a production build in dist/
+npm.cmd run preview  # Preview the production build
+npm.cmd run lint     # Run Oxlint
+```
+
+## Project layout
+
+```text
+App.jsx                 Shared app shell and page navigation
+main.jsx                React application entry point
+pages/                  Home, About, Capabilities, Network, and Contact pages
+components/             Shared header, footer, contact form, and section CTA
+data/siteData.js        Page content, navigation, contact details, and form endpoint
+data/siteImages.js      Local image path constants
+public/images/          Logo and locally stored website photographs
+styles/styles.css       Global and responsive site styles
+```
+
+Add or replace website images in `public/images/` and update their paths in `data/siteImages.js`. The site logo is `public/images/logo.jpeg`.
+
+## Configuration notes
+
+- Update `CONTACT` in `data/siteData.js` with the published office address, email, and phone number before launch.
+- The Contact form prepares an email draft while `SHEETS_URL` is empty. Set `SHEETS_URL` to a configured form endpoint to enable online submission.
+- The footer map is an OpenStreetMap regional map centered on Ghana; it does not identify an office address.
+- The site photographs are stored locally. The map tiles and Google Fonts still load from external services and require an internet connection.
